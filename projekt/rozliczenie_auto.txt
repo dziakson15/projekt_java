@@ -1,0 +1,4 @@
+Kto -> Komu : Kwota [zł]
+Patryk -> Marta : 180,61 zł
+Franek -> Iwo : 141,83 zł
+Franek -> Marta : 38,78 zł
