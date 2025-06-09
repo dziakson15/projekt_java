@@ -1,3 +1,4 @@
-Iwo;200,00;hotel;[Franek;Patryk]
-Marta;400,00;wyjazd;[Iwo;Franek]
-Iwo;122,44;jedzenie;[Franek;Patryk]
+Iwo;200.00;hotel;[Franek;Patryk]
+Marta;400.00;wyjazd;[Iwo;Franek]
+Iwo;122.44;jedzenie;[Franek;Patryk]
+Marek;400.00;paliwo;[Iwo;Franek]

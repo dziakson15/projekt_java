@@ -8,12 +8,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         ExpenseManager manager = new ExpenseManager();
         
-        // Wczytaj dane z pliku rozliczenia poprzedniego
         System.out.print("Podaj nazwę pliku rozliczenia z poprzedniego wyjazdu (np. rozliczenie.txt): ");
         String nazwaPliku = scanner.nextLine();
         manager.wczytajZPliku(nazwaPliku);
 
-        // Menu główne
         while (true) {
             System.out.println("\n--- Menu ---");
             System.out.println("1. Dodaj osobę");
@@ -23,7 +21,7 @@ public class Main {
             System.out.println("0. Zakończ i zapisz rozliczenie");
             System.out.print("Wybierz opcję: ");
             int opcja = scanner.nextInt();
-            scanner.nextLine();  // aby usunąć pozostały znak nowej linii
+            scanner.nextLine();
 
             switch (opcja) {
                 case 1:
@@ -36,7 +34,7 @@ public class Main {
                     String opis = scanner.nextLine();
                     System.out.print("Podaj kwotę wydatku: ");
                     double kwota = scanner.nextDouble();
-                    scanner.nextLine();  // aby usunąć pozostały znak nowej linii
+                    scanner.nextLine();
                     System.out.print("Podaj imię osoby płacącej: ");
                     String platnik = scanner.nextLine();
                     System.out.print("Podaj imiona uczestników (oddzielone przecinkiem): ");
@@ -52,7 +50,6 @@ public class Main {
                     manager.rozlicz();
                     break;
                 case 0:
-                    // Zapisz dane do pliku
                     String plikRozliczenia = "rozliczenie_auto.txt";
                     manager.zapiszRozliczenie(plikRozliczenia);
                     System.out.println("Do zobaczenia!");

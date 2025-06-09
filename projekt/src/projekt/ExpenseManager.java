@@ -28,7 +28,6 @@ public class ExpenseManager {
             Osoba o = znajdzOsobe(imie);
             if (o != null) uczestnicy.add(o);
         }
-
         if (platnik != null && !uczestnicy.isEmpty()) {
             platnik.dodajWydatek(kwota);
             Wydatek w = new Wydatek(opis, kwota, platnik, uczestnicy);
@@ -51,7 +50,7 @@ public class ExpenseManager {
                 if (czesci.length != 4) continue;
 
                 String platnik = czesci[0];
-                double kwota = Double.parseDouble(czesci[1].replace(",", ".")); // <== tu zmiana
+                double kwota = Double.parseDouble(czesci[1].replace(",", ".")); 
                 String opis = czesci[2];
                 String uczestnicyStr = czesci[3].replace("[", "").replace("]", "").trim();
                 List<String> uczestnicy = Arrays.stream(uczestnicyStr.split(";"))
@@ -66,9 +65,9 @@ public class ExpenseManager {
 
                 dodajWydatek(opis, kwota, platnik, uczestnicy);
             }
-            System.out.println("✅ Dane wczytane z pliku: " + nazwaPliku);
+            System.out.println("Dane wczytane z pliku: " + nazwaPliku);
         } catch (IOException | NumberFormatException e) {
-            System.out.println("❌ Błąd podczas wczytywania pliku: " + e.getMessage());
+            System.out.println("Błąd podczas wczytywania pliku: " + e.getMessage());
         }
     }
 
@@ -83,13 +82,11 @@ public class ExpenseManager {
                     writer.printf("%s -> %s : %.2f zł%n", dluznik, wierzyciel, kwota);
                 }
             }
-            System.out.println("✅ Rozliczenie zapisane do pliku: " + nazwaPliku);
+            System.out.println("Rozliczenie zapisane do pliku: " + nazwaPliku);
         } catch (IOException e) {
-            System.out.println("❌ Błąd podczas zapisu rozliczenia: " + e.getMessage());
+            System.out.println("Błąd podczas zapisu rozliczenia: " + e.getMessage());
         }
     }
-
-    // Rozliczanie
     public void rozlicz() {
         double suma = 0;
         for (Wydatek w : wydatki) {
@@ -114,7 +111,6 @@ public class ExpenseManager {
             }
         }
     }
-
     public Map<String, Map<String, Double>> ktoKomuIle() {
         Map<String, Double> saldo = obliczSaldo();
         Map<String, Map<String, Double>> rozliczenia = new HashMap<>();
@@ -152,10 +148,8 @@ public class ExpenseManager {
                 if (dlug <= 0) break;
             }
         }
-
         return rozliczenia;
     }
-
     private Map<String, Double> obliczSaldo() {
         Map<String, Double> saldo = new HashMap<>();
         double suma = 0.0;
@@ -198,9 +192,9 @@ public class ExpenseManager {
                                       .collect(Collectors.joining(";"));
                 writer.printf("%s;%.2f;%s;[%s]%n", platnik, kwota, opis, uczestnicy);
             }
-            System.out.println("✅ Wydatki zapisane do pliku: " + nazwaPliku);
+            System.out.println("Wydatki zapisane do pliku: " + nazwaPliku);
         } catch (IOException e) {
-            System.out.println("❌ Błąd przy zapisie wydatków: " + e.getMessage());
+            System.out.println("Błąd przy zapisie wydatków: " + e.getMessage());
         }
     }
 
